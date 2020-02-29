@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>操作事件</title>
+		<!--声明css样式-->
+		<style type="text/css">
+			ul li{
+				list-style-type: none;
+			}
+			#na{
+				position: relative;
+				left: 20px;
+			}
+			.img{
+				width: 20px;
+			}
+		</style>
+		<!--引入jquery文件-->
+		<script type="text/javascript" src="js/jquery-1.9.1.js" charset="UTF-8"></script>
+		<!--声明js代码域-->
+		<script type="text/javascript">
+			$(function(){
+				$("ul>label").bind("mouseover",function(){
+					$("#na").slideDown(1000);
+					$("#naImg").attr("src","img/1.jpeg");
+				});
+				$("ul>label").bind("mouseout",function(){
+					$("#na").slideUp(1000);
+					$("#naImg").attr("src","img/2.jpg");
+				});
+			});
+		
+       
+             //页面载入
+		    //单击事件
+			/* var flag=true;
+			 * $(function(){
+				$("ul>label").click(function(){
+					   if (flag) {
+					   $("#na").slideUp(1000);
+					   $("#naImg").attr("src","img/2.jpg");
+					   flag=false;
+				   }else{
+					   $("#na").slideDown(1000);
+					   $("#naImg").attr("src","img/1.jpeg");
+					   flag=true;
+				   }
+				});
+			})*/
+		</script>
+	</head>
+	<body>
+		<h3>jquery-菜单案例</h3>
+		<hr />
+		<ul>
+			<img class="img" src="img/1.jpeg" id="naImg"/>&nbsp;&nbsp;<label for="" >国际动态</label>
+			<div id="na">
+				<li><img class="img" src="img/2.jpg" alt=""/><label for="">国内新闻</label></li>
+				<li><img class="img" src="img/2.jpg" alt=""/><label for="">国际新闻</label></li>
+			</div>
+		</ul>
+	</body>
+</html>

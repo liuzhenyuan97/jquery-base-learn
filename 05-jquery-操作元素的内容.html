@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>操作元素HTML</title>
+		<meta charset="UTF-8"/>
+		<!--引入jquery文件-->
+		<script src="js/jquery-1.9.1.js" type="text/javascript" charset="UTF-8"></script>
+		<!--
+        	作者：570773402@qq.com
+        	时间：2019-11-07
+        	描述：
+        	jquery 操作元素内容学习：
+        	    获取元素对象：
+        	         1、获取
+        	         对象名.html()//返回当前对象的所有内容，包括HTML标签。
+        	    
+        	         2、修改
+        	    对象名.html("新的内容")//新的内容会将原有的内容覆盖，HTML标签将会被解析执行。
+        -->
+			
+		<!--声明js代码域-->
+		<script type="text/javascript">
+			//声明函数
+			function testHTML(){
+				//获取元素对象
+				     var showdiv=$("#showdiv");
+				//获取元素的内容
+				     alert(showdiv.html());
+			}
+			
+			function testHTML2(){
+				//获取元素对象
+				var showdiv=$("#showdiv");
+				//修改元素内容
+				showdiv.html(showdiv.html()+"<i>今天天气真好！</i>");
+			}
+			
+			function testText(){
+				//获取元素对象
+				var showdiv=$("#showdiv");
+				//获取元素内容
+				alert(showdiv.text());
+			}
+		</script>
+	</head>
+	<body>
+		<h3>操作元素HTML</h3>
+		<input type="button" name="" id="" value="测试获取元素内容--html()" onclick="testHTML()" />
+		<input type="button" name="" id="" value="测试修改元素内容--html()" onclick="testHTML2()" />
+		<input type="button" name="" id="" value="测试获取元素内容--text()" onclick="testText()" />
+		<hr />
+		<div id="showdiv">
+			<b>冲鸭！</b>
+		</div>
+	</body>
+</html>

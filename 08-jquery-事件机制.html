@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>操作事件</title>
+		<!--
+        	作者：570773402@qq.com
+        	时间：2020-02-25
+        	描述：jquery动态操作事件
+        	元素对象.bind("事件名"，fn)//动态的给指定的元素对象追加特定的事件及其监听的函数；
+        	注意：js中的是一次添加，多次添加是覆盖
+        	      jquery是追加效果，可以给一个事件添加不同的监听函数。
+        	      
+        	元素对象.unbind("事件名")//移除指定的元素镀锡的指定事件
+        	注意：js方式追加的不被移除
+        	
+        	元素对象名.one("事件名"，fn)//给指定的元素对象添加一次性事件，事件被触发执行一次后失效。
+        	注意：可以给事件添加多个一次函数，unbind可以用来解绑
+        	
+        	页面载入事件
+        	$(document).ready(fn);
+        	页面载入成功后悔调用传入的函数对象
+        	注意：
+        	   此方式可以给页面载入动态的增加多个函数对象，不会被覆盖
+        	
+        -->
+		<!--声明css样式-->
+		<style type="text/css">
+			#showdiv{
+				width: 300px;
+				height: 300px;
+				border: solid 3px orange;
+			}
+		</style>
+		<!--引入jquery文件-->
+		<script type="text/javascript" src="js/jquery-1.9.1.js" charset="UTF-8"></script>
+		<!--声明js代码域-->
+		<script type="text/javascript">
+			//js动态添加事件
+			function testThing(){
+				//获取元素对象
+				var btn=document.getElementById("btn")
+				//添加事件
+				btn.onclick=function(){
+					alert("我是js方式");
+				}
+			}
+			
+			//jquery添加
+			
+			function testBind(){
+				$("#btn2").bind("click",function(){alert("我是bind绑定单击事件")});
+				$("#btn2").bind("click",function(){alert("我是bind绑定单击事件2")});
+			}
+			
+			//测试解绑
+			function testUnBind(){
+				$("#btn2").unbind("click");
+			}
+			
+			//测试one
+			function testOne(){
+				$("#btn3").one("click",function(){alert("我是one")});
+			}
+			
+			//页面载入事件
+			  //js方式
+			  window.onload=function(){
+			  	alert("我是js方式页面加载");
+			  }
+			  //1会被2覆盖
+			  window.onload=function(){
+			  	alert("我是js方式页面加载2");
+			  }
+			
+			//jquery方式
+			    $(document).ready(function(){
+				      alert("我是jquery");
+				})
+			    //不被覆盖
+			    $(document).ready(function(){
+				      alert("我是jquery222");
+				})
+			    
+			
+			
+		</script>
+	</head>
+	<body>
+		<h3>操作事件</h3>
+		<input type="button" name="" id="" value="测试js动态添加事件" onclick="testThing()" />
+		<input type="button" name="" id="" value="测试jquery动态添加事件--bind" onclick="testBind()" />
+		<input type="button" name="" id="" value="测试jquery动态添加事件--Unbind" onclick="testUnBind()()" />
+		<input type="button" name="" id="" value="测试jquery动态添加事件--Unbind" onclick="testOne()()" />
+		<hr />
+		<input type="button" name="" id="btn" value="测试js"  />
+		<input type="button" name="" id="btn2" value="测试jqury-bind"  />
+		<input type="button" name="" id="btn3" value="测试jqury-one"  />
+		<hr />
+	</body>
+</html>
